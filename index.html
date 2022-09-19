@@ -13,7 +13,30 @@
 <body>
     <div class="container">
         <!-- WORK FROM INSIDE THIS CONTAINER-->
-
+        <h1>Rock Paper Scissors</h1>
+        <div id="welcome-screen">
+            <form name="form">
+                <label for="username">Your Name.</label>
+                <input placeholder="Enter Name Here..." id="username" name="username" class="form-control"></input>
+                <button id="start-game-button" class="btn btn-primary">Start Game!</button>
+            </form>
+        </div>
+        <div id="game-screen">
+            <div id="score-tally">
+                <p id="score">User: 0 v CPU: 0</p>
+            </div>
+            <form id="game-form">
+                <div class="form-group">
+                    <label for="user-selection">Select Your Choice</label>
+                    <select id="user-selection" name="user-selection" class="custom-select">
+                        <option>Rock</option>
+                        <option>Paper</option>
+                        <option>Scissors</option>
+                    </select>
+                </div>
+            <button id="go-button" class="btn btn-success">Go!</button>
+            </form>
+        </div>
     </div>
 
     <!-- Our own Scripts -->
