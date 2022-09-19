@@ -25,7 +25,7 @@ let game;
 
 // updateScoreTallyUI
 function updateScoreTallyUI(){
-  scoreParagraph.innerHTML(game.username ,":" , game.score.user, "v CPU: " , game.score.cpu)
+  scoreParagraph.innerHTML(`${game.username} : ${score.user} v CPU:  ${score.cpu}`)
 }
 
 // updateGameHistoryUI
