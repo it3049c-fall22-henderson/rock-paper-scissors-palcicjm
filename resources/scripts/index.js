@@ -8,11 +8,20 @@ const goButton = document.querySelector(`#go-button`);
 const scoreParagraph = document.querySelector(`#score`);
 const gameHistoryParagraph = document.querySelector(`#game-history`);
 
+
+startGameButton.addEventListener('click',function(e){
+	e.preventDefault();
+});
+
+goButton.addEventListener('click',function(e){
+	e.preventDefault();
+});
+
 // instantiate the game object from the `RockPaperScissors` class.
 let game;
 
 // hide game screen
-gameScreen.classList.add(`d-none`);
+
 
 // updateScoreTallyUI
 function updateScoreTallyUI(){
@@ -28,7 +37,7 @@ function updateGameHistoryUI(){
 startGameButton.addEventListener(`click`, function () {
   const username = document.querySelector(`#username`);
   game = new RockPaperScissors(userName);
-  gameScreen.classList.remove(`d-none`);
+  gameScreen.setAttribute("class", "game-screen");
   // Complete
 });
 
