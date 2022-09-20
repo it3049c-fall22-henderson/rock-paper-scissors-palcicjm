@@ -21,7 +21,7 @@ goButton.addEventListener('click',function(e){
 let game = new RockPaperScissors();
 
 // hide game screen
-gameScreen.classList.add("d-none");
+//gameScreen.classList.add("d-none");
 
 // updateScoreTallyUI
 function updateScoreTallyUI(){
