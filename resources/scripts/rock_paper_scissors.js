@@ -1,4 +1,4 @@
-const { get } = require("lodash");
+// const { get } = require("lodash");
 
 class RockPaperScissors {
   constructor(username) {
@@ -14,10 +14,13 @@ class RockPaperScissors {
    * RETURN: one of the following values (`rock`, `paper`, `scissors`)
    * using Math.random() method, you should be able to get one of the following values
    */
+
+
   generateCPUResponse(){
     const acceptedValues = [ `rock`, `paper`, `scissors` ];
-    index = Math.floor(Math.random() * 2);
-    return acceptedValues[index];
+    var index = Math.floor(Math.random() * 3);
+    cpuSelection = acceptedValues[index];
+    return cpuSelection;
   }
   /**
    * returns one of the following values: `win`, `lose`, `tie`
@@ -35,19 +38,19 @@ class RockPaperScissors {
    * @param {string} cpuSelection computer selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   determineWinner(userSelection, cpuSelection){
-    if(userSelection == "rock" && cpuSelection == "paper") {
+    if(userSelection == "rock" && cpuSelection === "paper") {
       return "lose";
     }
-    if(userSelection == "rock" && cpuSelection == "rock") {
+    if(userSelection == "rock" && cpuSelection === "rock") {
       return "tie";
     }
-    if(userSelection == "rock" && cpuSelection == "scissors") {
+    if(userSelection == "rock" && cpuSelection === "scissors") {
       return "win";
     }
-    if(userSelection == "paper" && cpuSelection == "paper") {
+    if(userSelection == "paper" && cpuSelection === "paper") {
       return "tie";
     }
-    if(userSelection == "paper" && cpuSelection == "rock") {
+    if(userSelection == "paper" && cpuSelection === "rock") {
       return "win";
     }
     if(userSelection == "paper" && cpuSelection == "scissors") {
@@ -70,13 +73,13 @@ class RockPaperScissors {
    * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   play(userSelection){
-    generateCPUResponse();
+    this.generateCPUResponse();
   
-    if(determineWinner(userSelection, cpuSelection) == "win"){
+    if(this.determineWinner(userSelection, cpuSelection) === "win"){
       this.score.user ++;
       this.gameHistoryLog.push(`USER selected Scissors, CPU selected Paper: USER wins`);
     }
-    if(determineWinner(userSelection, cpuSelection) == "lose"){
+    if(this.determineWinner(userSelection, cpuSelection) === "lose"){
       this.score.cpu ++;
       this.gameHistoryLog.push(`USER selected Scissors, CPU selected Paper: USER wins`);
     }
