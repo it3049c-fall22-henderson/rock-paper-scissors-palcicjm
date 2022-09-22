@@ -19,7 +19,7 @@ class RockPaperScissors {
   generateCPUResponse(){
     const acceptedValues = [ `rock`, `paper`, `scissors` ];
     var index = Math.floor(Math.random() * 3);
-    cpuSelection = acceptedValues[index];
+    var cpuSelection = acceptedValues[index];
     return cpuSelection;
   }
   /**
