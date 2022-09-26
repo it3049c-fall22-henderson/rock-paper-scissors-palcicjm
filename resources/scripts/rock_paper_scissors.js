@@ -1,5 +1,3 @@
-// const { get } = require("lodash");
-
 class RockPaperScissors {
   constructor(username) {
     this.username = username;
@@ -9,18 +7,14 @@ class RockPaperScissors {
     },
     this.gameHistoryLog = [];
   }
-
   /**
    * RETURN: one of the following values (`rock`, `paper`, `scissors`)
    * using Math.random() method, you should be able to get one of the following values
    */
-
-
   generateCPUResponse(){
     const acceptedValues = [ `rock`, `paper`, `scissors` ];
-    var index = Math.floor(Math.random() * 3);
-    var cpuSelection = acceptedValues[index];
-    return cpuSelection;
+    let index = Math.floor(Math.random() * Math.floor(acceptedValues.length));
+    return acceptedValues[index];
   }
   /**
    * returns one of the following values: `win`, `lose`, `tie`
@@ -38,51 +32,44 @@ class RockPaperScissors {
    * @param {string} cpuSelection computer selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   determineWinner(userSelection, cpuSelection){
-    if(userSelection == "rock" && cpuSelection === "paper") {
-      return "lose";
+    let outcome = "none";
+    if (userSelection === cpuSelection)
+    {
+      outcome = "tie";
     }
-    if(userSelection == "rock" && cpuSelection === "rock") {
-      return "tie";
+    else if (userSelection === "rock" && cpuSelection === "scissors")
+    {
+      outcome = "win";
     }
-    if(userSelection == "rock" && cpuSelection === "scissors") {
-      return "win";
+    else if (userSelection === "paper" && cpuSelection === "rock")
+    {
+      outcome = "win";
     }
-    if(userSelection == "paper" && cpuSelection === "paper") {
-      return "tie";
+    else if (userSelection === "scissors" && cpuSelection === "paper")
+    {
+      outcome = "win";
     }
-    if(userSelection == "paper" && cpuSelection === "rock") {
-      return "win";
+    else 
+    {
+      outcome = "lose";
     }
-    if(userSelection == "paper" && cpuSelection == "scissors") {
-      return "lose";
-    }
-    if(userSelection == "scissors" && cpuSelection == "paper") {
-      return "win";
-    }
-    if(userSelection == "scissors" && cpuSelection == "rock") {
-      return "lose";
-    }
-    if(userSelection == "scissors" && cpuSelection == "scissors") {
-      return "tie";
-    }
+    return outcome;
   }
-
-
   /**
    * 
    * @param {string} userSelection user selection. Can only be one of the following values [`rock`, `paper`, `scissors`]
    */
   play(userSelection){
-    this.generateCPUResponse();
-  
-    if(this.determineWinner(userSelection, cpuSelection) === "win"){
-      this.score.user ++;
-      this.gameHistoryLog.push(`USER selected Scissors, CPU selected Paper: USER wins`);
+    let cpuSelection = this.generateCPUResponse();
+    let outcome = this.determineWinner(userSelection, cpuSelection);
+    if (outcome === "win")
+    {
+      this.score.user++;
     }
-    if(this.determineWinner(userSelection, cpuSelection) === "lose"){
-      this.score.cpu ++;
-      this.gameHistoryLog.push(`USER selected Scissors, CPU selected Paper: USER wins`);
-    }
+    else if (outcome === "lose")
+    {
+      this.score.cpu++;
   }
-
+  this.gameHistoryLog.push(username.value + ' selected ' + userSelection + ', CPU selected ' + cpuSelection + ': ' + username.value + ' ' + outcome + 's. <br>');
+  }
 }
